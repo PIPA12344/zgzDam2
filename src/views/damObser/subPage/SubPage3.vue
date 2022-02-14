@@ -1,4 +1,4 @@
-<template>
+/<template>
   <div class="box">
     <el-row :gutter="10">
       <tree3 @handleNodeClick="handleNodeClick"/>
