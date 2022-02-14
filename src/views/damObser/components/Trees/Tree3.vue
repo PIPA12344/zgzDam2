@@ -98,7 +98,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
   .tree-box {
     margin-top: 10px;
   }
