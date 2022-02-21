@@ -50,7 +50,7 @@
     data() {
       return {
         listsH: document.body.clientHeight - 300,
-        imgH: document.body.clientHeight - 350,
+        imgH: document.body.clientHeight - 300,
         warnPoint: '',
         tm1: this.stm,
         tm2: this.etm,
@@ -235,7 +235,9 @@
             height: '22px',
             width: '22px',
             marginTop: pointData[i].y * this.picHeight / this.img.height + 'px',
-            marginLeft: pointData[i].x * this.picWidth / this.img.width + 'px',
+            // marginTop: pointData[i].y  + 'px',
+            marginLeft: pointData[i].x * this.picWidth / this.img.width-this.picWidth*0.5 + 'px',
+            // marginLeft: pointData[i].x + 'px',
             devicecd: pointData[i].devicecd,
             value: pointData[i].value,
             active: active,
@@ -295,6 +297,5 @@
 
   .imgClass {
     width: calc(100% - 20px);
-
   }
 </style>

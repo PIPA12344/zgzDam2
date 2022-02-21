@@ -36,7 +36,5 @@ export default {
 </script>
 
 <style scoped>
-.box {
-  /*margin: 5px;*/
-}
+
 </style>

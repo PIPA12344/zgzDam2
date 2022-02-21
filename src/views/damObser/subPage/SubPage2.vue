@@ -149,4 +149,5 @@ export default {
 .mainContentStyleWithHeader {
   /*height: 680px;*/
 }
+
 </style>

@@ -17,6 +17,7 @@
               node-key="id"
               :data="treeNodes"
               ref="tree"
+              accordion
               :props="defaultProps"
               :filter-node-method="filterNode"
               @node-click="handleNodeClick"
@@ -37,7 +38,6 @@
 
 <script>
   import {getRedCountList} from '@/api/dam/slfx'
-
   export default {
     components: {},
     props: {},
@@ -101,10 +101,6 @@
       }
     },
     mounted() {
-      //关闭视频弹窗
-      if (this.$oWebControl) {
-        this.$oWebControl.JS_HideWnd();
-      }
       this.triggerEvent()
     },
     methods: {
@@ -122,6 +118,7 @@
         }
         getRedCountList(params).then(res => {
           this.res = res
+          console.log(res);
           const tempTree = this.treeNodes
           let top = 0;
           let bxgc = 0;
@@ -138,6 +135,7 @@
           this.warnId = []
           // 遍历接口数据导入观测项目类型
           for (let i in res.data) {
+            console.log('循环开始')
             res.data[i].icon = 'el-icon-s-order';
             switch (res.data[i].highlevel) {
               case 'top' :
@@ -146,24 +144,31 @@
                   tempTree[0].id = res.data[i].typecd
                   tempTree[0].icon = 'el-icon-s-order'
                   tempTree[0].warncount = res.data[i].warncount
+                  console.log('执行')
                   break
                 } else if (res.data[i].typecd === 'SLGC') {
                   tempTree[2].label = res.data[i].typenm
                   tempTree[2].id = res.data[i].typecd
                   tempTree[2].icon = 'el-icon-s-order'
                   tempTree[2].warncount = res.data[i].warncount
+                  console.log('执行')
+
                   break
                 } else if (res.data[i].typecd === 'HJLGC') {
                   tempTree[1].label = res.data[i].typenm
                   tempTree[1].id = res.data[i].typecd
                   tempTree[1].icon = 'el-icon-s-order'
                   tempTree[1].warncount = res.data[i].warncount
+                  console.log('执行')
+
                   break
                 } else {
                   tempTree[3].label = res.data[i].typenm
                   tempTree[3].id = res.data[i].typecd
                   tempTree[3].icon = 'el-icon-s-order'
                   tempTree[3].warncount = res.data[i].warncount
+                  console.log('执行')
+
                   break
                 }
               case 'BXGC' :
@@ -171,12 +176,16 @@
                 tempTree[0].children[bxgc].id = res.data[i].typecd
                 tempTree[0].children[bxgc].icon = 'el-icon-menu'
                 tempTree[0].children[bxgc].warncount = res.data[i].warncount
+                console.log('执行')
+
 
                 if (res.data[i].warncount !== 0) {
                   bxgcWarnCount = bxgcWarnCount + res.data[i].warncount
                   this.warnId.push(res.data[i].typecd)
                   this.warnCount.push(res.data[i].warncount)
                   this.warnPoint.push(res.data[i].message.split(';'))
+                  console.log('执行')
+
                 }
                 bxgc++
                 break
@@ -192,6 +201,8 @@
                   this.warnCount.push(res.data[i].warncount)
                   this.warnPoint.push(res.data[i].message.split(';'))
                 }
+                console.log('执行')
+
                 break
               case 'YLBLWDGC' :
                 tempTree[3].children[ylbl].label = res.data[i].typenm
@@ -205,6 +216,8 @@
                   this.warnCount.push(res.data[i].warncount)
                   this.warnPoint.push(res.data[i].message.split(';'))
                 }
+                console.log('执行')
+
                 break
               case 'HJLGC' :
                 tempTree[1].children[hjlgc].label = res.data[i].typenm
@@ -218,6 +231,8 @@
                   this.warnCount.push(res.data[i].warncount)
                   this.warnPoint.push(res.data[i].message.split(';'))
                 }
+                console.log('执行')
+
                 break
               case 'BTWY' :
                 tempTree[0].children[0].children[btwy].label = res.data[i].typenm
@@ -232,6 +247,8 @@
                   this.warnCount.push(res.data[i].warncount)
                   this.warnPoint.push(res.data[i].message.split(';'))
                 }
+                console.log('执行')
+
                 break
               case 'JFBH' :
                 tempTree[0].children[1].children[jfbh].label = res.data[i].typenm
@@ -246,6 +263,8 @@
                   this.warnPoint.push(res.data[i].message.split(';'))
                 }
                 break
+                console.log('执行')
+
               case 'SLL' :
                 tempTree[2].children[2].children[sll].label = res.data[i].typenm
                 tempTree[2].children[2].children[sll].id = res.data[i].typecd

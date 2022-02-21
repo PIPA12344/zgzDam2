@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="width: 100%">
     <span v-for="item in pointAttributes" :style="item" v-show="item.active==='normal'"
           @click="pointClick(item.devicecd,item.marginLeft,item.marginTop)">
       <img :src="iconUrl"

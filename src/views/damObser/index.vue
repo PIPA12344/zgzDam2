@@ -3,7 +3,7 @@
     <el-header>
       <nav-menu @selectIndex="selectPage"></nav-menu>
     </el-header>
-    <component :is="activePage"></component>
+    <component :is="activePage" style="height: 800px"></component>
   </el-container>
 </template>
 

@@ -105,17 +105,7 @@
         }
       }
     },
-    activated() {
-      //关闭视频弹窗
-      if (this.$oWebControl) {
-        this.$oWebControl.JS_HideWnd();
-      }
-    },
     mounted() {
-      //关闭视频弹窗
-      if (this.$oWebControl) {
-        this.$oWebControl.JS_HideWnd();
-      }
       this.triggerEvent()
       this.initChart()
     },
@@ -125,6 +115,7 @@
         this.charts.setOption(this.option)
       },
       triggerEvent() {
+        console.log('startA')
         this.upliftedPressure()
       },
       upliftedPressure() {
@@ -141,7 +132,7 @@
           const sort1 = []
           const sort2 = []
           data.forEach(function (group, v) {
-            (group.data).forEach(function (item, k) {
+            (group.data).forEach(function (item) {
               item.X = format(new Date((item.X - 621355968000000000) / 10000)).substring(0, 10)
               if (v === 0) {
                 tmArr.push(item.X)
@@ -159,7 +150,6 @@
           sort2.sort(function (a, b) {
             return a - b
           })
-
           const tempOption = this.option
           tempOption.legend.data = [data[0]['Legend_name'], data[1]['Legend_name']]
           tempOption.title.text = '测点' + this.pid + '位势过程线'
