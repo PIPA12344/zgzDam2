@@ -24,7 +24,6 @@
               <span class="custom-tree-node" slot-scope="{ node, data }">
                 <span>
                   <i :class="data.icon" style="color: rgb(24,144,255); margin-right: 10px;"></i>{{ data.label }}
-                  <i v-if="data.warncount != 0" style="color: red;font-style: normal;position: absolute;right: 10px;">{{data.warncount}}</i>
                 </span>
               </span>
             </el-tree>
@@ -68,10 +67,11 @@
           },
           {
             label: '加载中...',
-            children: [{}, {},
+            children: [{},
               {
                 children: [{}, {}]
-              }
+              },
+              {}
             ]
           },
           {
@@ -93,10 +93,6 @@
       }
     },
     mounted() {
-      //关闭视频弹窗
-      if (this.$oWebControl) {
-        this.$oWebControl.JS_HideWnd();
-      }
       this.triggerEvent()
     },
     methods: {
@@ -124,7 +120,8 @@
           let jfbh = 0;
           let sll = 0
           // 遍历接口数据导入观测项目类型
-          for (let i = 0; i < res.data.length; i++) {
+          for (let i in res.data) {
+            console.log('循环开始')
             res.data[i].icon = 'el-icon-s-order';
             switch (res.data[i].highlevel) {
               case 'top' :
@@ -139,6 +136,7 @@
                   tempTree[2].id = res.data[i].typecd
                   tempTree[2].icon = 'el-icon-s-order'
                   tempTree[2].warncount = res.data[i].warncount
+
                   break
                 } else if (res.data[i].typecd === 'HJLGC') {
                   tempTree[1].label = res.data[i].typenm
@@ -158,13 +156,6 @@
                 tempTree[0].children[bxgc].id = res.data[i].typecd
                 tempTree[0].children[bxgc].icon = 'el-icon-menu'
                 tempTree[0].children[bxgc].warncount = res.data[i].warncount
-
-                if (res.data[i].warncount !== 0) {
-                  bxgcWarnCount = bxgcWarnCount + res.data[i].warncount
-                  this.warnId.push(res.data[i].typecd)
-                  this.warnCount.push(res.data[i].warncount)
-                  this.warnPoint.push(res.data[i].message.split(';'))
-                }
                 bxgc++
                 break
               case 'SLGC' :
@@ -173,12 +164,6 @@
                 tempTree[2].children[slgc].icon = 'el-icon-menu'
                 tempTree[2].children[slgc].warncount = res.data[i].warncount
                 slgc++
-                if (res.data[i].warncount !== 0) {
-                  slgcWarnCount = slgcWarnCount + res.data[i].warncount
-                  this.warnId.push(res.data[i].typecd)
-                  this.warnCount.push(res.data[i].warncount)
-                  this.warnPoint.push(res.data[i].message.split(';'))
-                }
                 break
               case 'YLBLWDGC' :
                 tempTree[3].children[ylbl].label = res.data[i].typenm
@@ -186,12 +171,6 @@
                 tempTree[3].children[ylbl].icon = 'el-icon-menu'
                 tempTree[3].children[ylbl].warncount = res.data[i].warncount
                 ylbl++
-                if (res.data[i].warncount !== 0) {
-                  ylblWarnCount = ylblWarnCount + res.data[i].warncount
-                  this.warnId.push(res.data[i].typecd)
-                  this.warnCount.push(res.data[i].warncount)
-                  this.warnPoint.push(res.data[i].message.split(';'))
-                }
                 break
               case 'HJLGC' :
                 tempTree[1].children[hjlgc].label = res.data[i].typenm
@@ -199,26 +178,13 @@
                 tempTree[1].children[hjlgc].icon = 'el-icon-menu'
                 tempTree[1].children[hjlgc].warncount = res.data[i].warncount
                 hjlgc++
-                if (res.data[i].warncount !== 0) {
-                  hjlgcWarnCount = hjlgcWarnCount + res.data[i].warncount
-                  this.warnId.push(res.data[i].typecd)
-                  this.warnCount.push(res.data[i].warncount)
-                  this.warnPoint.push(res.data[i].message.split(';'))
-                }
                 break
               case 'BTWY' :
                 tempTree[0].children[0].children[btwy].label = res.data[i].typenm
                 tempTree[0].children[0].children[btwy].id = res.data[i].typecd
                 tempTree[0].children[0].children[btwy].icon = 'el-icon-menu'
                 tempTree[0].children[0].children[btwy].warncount = res.data[i].warncount
-
                 btwy++
-                if (res.data[i].warncount !== 0) {
-                  bxgcWarnCount = bxgcWarnCount + res.data[i].warncount
-                  this.warnId.push(res.data[i].typecd)
-                  this.warnCount.push(res.data[i].warncount)
-                  this.warnPoint.push(res.data[i].message.split(';'))
-                }
                 break
               case 'JFBH' :
                 tempTree[0].children[1].children[jfbh].label = res.data[i].typenm
@@ -226,25 +192,13 @@
                 tempTree[0].children[1].children[jfbh].icon = 'el-icon-menu'
                 tempTree[0].children[1].children[jfbh].warncount = res.data[i].warncount
                 jfbh++
-                if (res.data[i].warncount !== 0) {
-                  bxgcWarnCount = bxgcWarnCount + res.data[i].warncount
-                  this.warnId.push(res.data[i].typecd)
-                  this.warnCount.push(res.data[i].warncount)
-                  this.warnPoint.push(res.data[i].message.split(';'))
-                }
                 break
               case 'SLL' :
-                tempTree[2].children[2].children[sll].label = res.data[i].typenm
-                tempTree[2].children[2].children[sll].id = res.data[i].typecd
-                tempTree[2].children[2].children[sll].icon = 'el-icon-menu'
-                tempTree[2].children[2].children[sll].warncount = res.data[i].warncount
+                tempTree[2].children[1].children[sll].label = res.data[i].typenm
+                tempTree[2].children[1].children[sll].id = res.data[i].typecd
+                tempTree[2].children[1].children[sll].icon = 'el-icon-menu'
+                tempTree[2].children[1].children[sll].warncount = res.data[i].warncount
                 sll++
-                if (res.data[i].warncount !== 0) {
-                  slgcWarnCount = slgcWarnCount + res.data[i].warncount
-                  this.warnId.push(res.data[i].typecd)
-                  this.warnCount.push(res.data[i].warncount)
-                  this.warnPoint.push(res.data[i].message.split(';'))
-                }
                 break
               default :
                 break

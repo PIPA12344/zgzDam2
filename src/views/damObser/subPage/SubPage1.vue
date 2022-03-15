@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <el-row :gutter="10">
-      <tree1 @handleNodeClick="handleNodeClick" @sendWarnPoint="sendWarnPoint"/>
+      <tree1 @handleNodeClick="handleNodeClick" @sendWarnPoint="sendWarnPoint" />
       <el-col :span="20" :xs="24">
         <tool-bar1 :proj-name="projName"
                    :id="devicecd"
@@ -18,6 +18,7 @@
                     :projname="projName"
                     @sendState="sendState"
                     ref="points-map"
+                    style="height: 600px"
         />
       </el-col>
     </el-row>

@@ -16,7 +16,7 @@
       <img :src=pictureUrl
            ref="bigPicture"
            class="imgClass"
-           :style="{'height': imgH + 'px'}">
+           style="height: 600px">
     </div>
   </el-card>
 </template>
@@ -39,18 +39,12 @@
       etm: '',
       projname: "",
     },
-    mounted() {
-      //关闭视频弹窗
-      if (this.$oWebControl) {
-        this.$oWebControl.JS_HideWnd();
-      }
-    },
     updated() {
     },
     data() {
       return {
         listsH: document.body.clientHeight - 300,
-        imgH: document.body.clientHeight - 300,
+        imgH: document.body.clientHeight-300,
         warnPoint: '',
         tm1: this.stm,
         tm2: this.etm,
