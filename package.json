@@ -17,6 +17,7 @@
   "dependencies": {
     "@turf/turf": "^6.5.0",
     "ant-design-vue": "^1.7.6",
+    "axios": "^0.27.2",
     "codemirror": "5.45.0",
     "core-js": "3.6.5",
     "driver.js": "0.9.5",

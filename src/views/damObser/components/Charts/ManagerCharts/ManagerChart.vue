@@ -32,8 +32,8 @@
         <template slot-scope="scope">
           <el-button size="mini" icon="el-icon-edit" circle type="primary"
                      @click="handleSelectionChange(scope.$index,tableData)"/>
-          <el-button size="mini" icon="el-icon-delete" circle type="danger"
-                     @click.native.prevent="deleteRow(scope.$index, tableData)"/>
+<!--          <el-button size="mini" icon="el-icon-delete" circle type="danger"-->
+<!--                     @click.native.prevent="deleteRow(scope.$index, tableData)"/>-->
         </template>
       </el-table-column>
     </el-table>

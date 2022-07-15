@@ -57,18 +57,18 @@
                 label: '扬压力系数分析',
                 children: []
               },
-              {
-                id: 'sl-fbtfx',
-                icon: 'el-icon-menu',
-                label: '分布图分析',
-                children: []
-              },
-              {
-                id: 'sl-fbtfx_dh',
-                icon: 'el-icon-menu',
-                label: '分布图分析-动画演示',
-                children: []
-              },
+              // {
+              //   id: 'sl-fbtfx',
+              //   icon: 'el-icon-menu',
+              //   label: '分布图分析',
+              //   children: []
+              // },
+              // {
+              //   id: 'sl-fbtfx_dh',
+              //   icon: 'el-icon-menu',
+              //   label: '分布图分析-动画演示',
+              //   children: []
+              // },
               {
                 id: 'sl-xgxfx',
                 icon: 'el-icon-menu',
@@ -171,25 +171,25 @@
               }
             ]
           },
-          {
-            id: 6,
-            icon: 'el-icon-s-order',
-            label: '挠度分析',
-            children: [
-              {
-                id: 'nd-fbtfx',
-                icon: 'el-icon-menu',
-                label: '分布图分析',
-                children: []
-              },
-              {
-                id: 'nd-fbtfx-dh',
-                icon: 'el-icon-menu',
-                label: '分布图分析-动画演示',
-                children: []
-              }
-            ]
-          },
+          // {
+          //   id: 6,
+          //   icon: 'el-icon-s-order',
+          //   label: '挠度分析',
+          //   children: [
+          //     {
+          //       id: 'nd-fbtfx',
+          //       icon: 'el-icon-menu',
+          //       label: '分布图分析',
+          //       children: []
+          //     },
+          //     {
+          //       id: 'nd-fbtfx-dh',
+          //       icon: 'el-icon-menu',
+          //       label: '分布图分析-动画演示',
+          //       children: []
+          //     }
+          //   ]
+          // },
           {
             id: 7,
             icon: 'el-icon-s-order',

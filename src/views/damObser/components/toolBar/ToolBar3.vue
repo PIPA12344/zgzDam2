@@ -7,9 +7,9 @@
         <span> ~ </span>
         <end-data @etmChanged="etmChanged"/>
         <el-button type="primary" icon="el-icon-search" @click="startAnalyze" style="margin-left:10px;">查询</el-button>
-        <el-button type="primary" size="mini" class="btnStyleRight" plain>录入</el-button>
-        <el-button type="primary" size="mini" class="btnStyleLeft btnStyleRight" plain>删除</el-button>
-        <el-button type="primary" size="mini" class="btnStyleLeft" plain @click="exportExcel">导出</el-button>
+<!--        <el-button type="primary" size="mini" class="btnStyleRight" plain>录入</el-button>-->
+<!--        <el-button type="primary" size="mini" class="btnStyleLeft btnStyleRight" plain>删除</el-button>-->
+        <el-button type="primary" size="mini" class="btnStyleLeft" plain @click="exportExcel" style="margin-left: 10px">导出</el-button>
       </span>
       </el-card>
     </div>
@@ -19,7 +19,6 @@
 <script>
   import BeginData from "@/views/damObser/components/toolBar/components/BeginDate";
   import EndData from "@/views/damObser/components/toolBar/components/EndDate";
-
   export default {
     components: {
       BeginData,
@@ -63,9 +62,7 @@
 
   .btnStyleLeft {
     margin-left: 0;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-left: 1px solid white;
+
   }
 
   .btnStyleRight {

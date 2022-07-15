@@ -17,18 +17,13 @@
       <img :src="iconWarnUrl"
            :alt="item.devicecd">
       <span class="point-val">{{item.value}}</span>
-
     </span>
-
-
     <!--<img :src="iconUrl" v-show="item.active==='normal'" v-for="item in pointAttributes" :style="item"-->
     <!--@click="pointClick(item.devicecd,item.marginLeft,item.marginTop)" :alt="item.devicecd">-->
     <!--<img :src="iconUrl" v-show="item.active==='deactivate'" v-for="item in pointAttributes" :style="item"-->
     <!--@click="pointClick(item.devicecd,item.marginLeft,item.marginTop)" :alt="item.devicecd"/>-->
     <!--<img :src="iconWarnUrl" v-show="item.active==='alarm'" v-for="item in pointAttributes" :style="item"-->
     <!--@click="pointClick(item.devicecd,item.marginLeft,item.marginTop)" :alt="item.devicecd">-->
-
-
   </div>
 </template>
 

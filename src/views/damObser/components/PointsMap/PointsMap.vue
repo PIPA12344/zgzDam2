@@ -255,13 +255,19 @@
           devicecd: devicecd,
           rescd: this.rescd
         }
-        chartByTimeDeviceRescd(params).then(res => {
-          this.chartData = res.data
-          this.$refs.moveChart.initChart(res.data, devicecd)
-        })
+        setTimeout(() => {
+          chartByTimeDeviceRescd(params).then(res => {
+            this.chartData = res.data
+            this.$refs.moveChart.initChart(res.data, devicecd)
+          })
+        },200)
+
         //设置表格窗口弹出位置，防止跳出窗口可视范围内
-        if (parseInt(x) > 850) {
-          x = parseInt(x) - 600 + 'px'
+        if (parseInt(x) < 0) {
+          x = parseInt(x) + 600 + 'px'
+        }
+        if(parseInt(y) >257) {
+          y = parseInt(y)-300 +'px'
         }
         this.chartAttributes = {
           position: 'absolute',

@@ -34,6 +34,9 @@ export default {
           min: 0,
           max: 300
         },
+        tooltip: {
+          trigger: 'axis'
+        },
         legend: {
           data: []
         },

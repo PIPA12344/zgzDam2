@@ -4,7 +4,7 @@
 
 <script>
   import echarts from "echarts";
-  import line from "@/views/charts/line";
+  // import line from "@/views/charts/line";
 
   export default {
     name: "MoveChart",
@@ -13,10 +13,6 @@
       chartData1: ''
     },
     mounted() {
-      //关闭视频弹窗
-      if (this.$oWebControl) {
-        this.$oWebControl.JS_HideWnd();
-      }
     },
     data() {
       return {
@@ -90,6 +86,7 @@
     },
     methods: {
       initChart(chartData, devicecd) {
+        console.log(chartData,devicecd)
         this.charts = echarts.init(document.getElementById('moveChart'))
         this.charts.setOption(this.option)
         let tempOption = this.option
@@ -98,6 +95,9 @@
         let upperLimit = ''
         let lowerLimit = ''
         for (let i in chartData) {
+          chartData.forEach(item => {
+            item.tm = item.tm.split(" ")[0]
+          })
           xData.push(chartData[i].tm)
           yData.push(chartData[i].value)
           upperLimit = chartData[0].maxv

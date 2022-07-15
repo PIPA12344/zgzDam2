@@ -30,6 +30,7 @@ import Tree1 from "@/views/damObser/components/Trees/Tree1";
 import ToolBar1 from "@/views/damObser/components/toolBar/ToolBar1";
 import PointsMap from "@/views/damObser/components/PointsMap/PointsMap";
 import {formatWithSeperator} from "@/utils/datetime";
+import {testProxy} from "../../../api/dam/slfx";
 
 export default {
   name: 'subPage01',
@@ -37,6 +38,11 @@ export default {
     Tree1,
     ToolBar1,
     PointsMap,
+  },
+  mounted() {
+    testProxy('2022-05-17 16:00','3302001,3302002,3302003,3302004,3302005,3302006').then(res => {
+      console.log(res)
+    })
   },
   data() {
     return {

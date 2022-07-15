@@ -411,7 +411,7 @@
       //   }
       // },
       // Tree点击事件
-      handleNodeClick(nodeData) {
+        handleNodeClick(nodeData) {
         let apiData
         for (let i = 0; i < this.res.data.length; i++) {
           if (nodeData.id === this.res.data[i].typecd) {

@@ -31,6 +31,9 @@ export default {
         title: {
           text: '测点'+this.pid+'过程线'
         },
+        tooltip: {
+          trigger: 'axis'
+        },
         grid: {
           left: '2%',
           right: '2%',
